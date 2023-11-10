@@ -1,12 +1,12 @@
-FROM mcr.microsoft.com/mssql/server:2019-latest
-LABEL maintainer="Zack Moore https://github.com/ormico/"
+FROM mcr.microsoft.com/mssql/server:2022-latest
+LABEL maintainer="Dmitrijs Zaharovs https://github.com/divlv/"
 USER root
 VOLUME download
 RUN apt-get update \
     && apt-get upgrade -y \
     && ACCEPT_EULA=Y apt-get install -y \
         unzip \
-        msodbcsql17 \
+        msodbcsql18 \
         mssql-tools
 RUN wget -O sqlpackage.zip https://aka.ms/sqlpackage-linux \
     && unzip sqlpackage.zip -d /opt/sqlpackage \
